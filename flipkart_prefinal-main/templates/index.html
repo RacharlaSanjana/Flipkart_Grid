@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Recommendations</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') | safe }}">
+</head>
+<body>
+    <h1>Product Recommendations</h1>
+
+    <!-- Similar Users Recommendation Form -->
+    <form id="similar-users-form">
+        <label for="user-id">User ID:</label>
+        <input type="text" id="user-id" name="user_id" required>
+        <button type="button" onclick="getSimilarUserRecommendations()">Get Similar User Recommendations</button>
+    </form>
+    <div id="similar-users-recommendations">
+        <h2>Recommended Products (Similar Users):</h2>
+        <ul id="similar-users-recommendations-list"></ul>
+    </div>
+
+    <!-- Rank-Based Recommendation Form -->
+    <form id="rank-based-form">
+        <label for="sub-category">Select a Sub-Category:</label>
+        <select id="sub-category" name="sub_category">
+            <option value="lgTV">lgTV</option>
+            <option value="boat">boat</option>
+            <option value="mi">mi</option>
+            <option value="dell">dell</option>
+            <option value="hp">hp</option>
+            <!-- Add more options for other sub-categories -->
+        </select>
+        <button type="button" onclick="getRankBasedRecommendations()">Get Rank-Based Recommendations</button>
+    </form>
+    <div id="rank-based-recommendations">
+        <h2>Recommended Products (Rank-Based):</h2>
+        <ul id="rank-based-recommendations-list"></ul>
+    </div>
+
+    <!-- Model-Based Recommendation Form -->
+    <form id="model-based-form">
+        <label for="user-id-model">User ID:</label>
+        <input type="text" id="user-id-model" name="user_id_model" required>
+        <button type="button" onclick="getModelBasedRecommendations()">Get Model-Based Recommendations</button>
+    </form>
+    <div id="model-based-recommendations">
+        <h2>Recommended Products (Model-Based):</h2>
+        <ul id="model-based-recommendations-list"></ul>
+    </div>
+      <!-- scripts -->
+        <script src="{{ url_for('static', filename='script_similar_users.js') }}"></script>
+        <script src="{{ url_for('static', filename='script_rank_based.js') }}"></script>
+        <script src="{{ url_for('static', filename='script_model_based.js') }}"></script>
+
+ </body>
+</html>
